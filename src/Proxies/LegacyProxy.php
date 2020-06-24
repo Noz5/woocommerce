@@ -23,22 +23,6 @@ use \Psr\Container\ContainerInterface as Container;
 class LegacyProxy {
 
 	/**
-	 * Holds the instance of the container to use.
-	 *
-	 * @var Container
-	 */
-	private $container;
-
-	/**
-	 * Creates a new instance of the class.
-	 *
-	 * @param Container $container The container to use.
-	 */
-	public function __construct( Container $container ) {
-		$this->container = $container;
-	}
-
-	/**
 	 * Gets an instance of a given legacy class.
 	 * This must not be used to get instances of classes in the `src` directory.
 	 *
@@ -48,7 +32,7 @@ class LegacyProxy {
 	 * @throws \Exception The requested class belongs to the `src` directory, or there was an error creating an instance of the class.
 	 */
 	public function getInstanceOf( string $class_name ) {
-		if ( $this->container->has( $class_name ) ) {
+		if ( false !== strpos( $class_name, '\\' ) ) {
 			throw new \Exception( 'The LegacyProxy class is not intended for getting instances of classes in the src directory, please use constructor injection or the instance of \\Psr\\Container\\ContainerInterface for that.' );
 		}
 
