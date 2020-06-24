@@ -41,7 +41,7 @@ class ThemeSupport {
 	 * @param array $options The options to be added.
 	 */
 	public function add_options( $options ) {
-		$this->legacy_proxy->callFunction( 'add_theme_support', 'woocommerce', $options );
+		$this->legacy_proxy->call_function( 'add_theme_support', 'woocommerce', $options );
 	}
 
 	/**
@@ -113,7 +113,7 @@ class ThemeSupport {
 	 * @return array An array with all the theme support options defined for the 'woocommerce' feature, or false if nothing has been defined for that feature.
 	 */
 	private function get_all_options() {
-		$theme_support = $this->legacy_proxy->callFunction( 'get_theme_support', 'woocommerce' );
+		$theme_support = $this->legacy_proxy->call_function( 'get_theme_support', 'woocommerce' );
 		return is_array( $theme_support ) ? $theme_support[0] : false;
 	}
 }

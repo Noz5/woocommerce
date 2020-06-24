@@ -174,7 +174,7 @@ class WC_Unit_Test_Case extends WP_HTTP_TestCase {
 	 * @return mixed The instance.
 	 */
 	public function get_legacy_instance_of( string $class_name ) {
-		return wc_get_container()->get( LegacyProxy::class )->getInstanceOf( $class_name );
+		return wc_get_container()->get( LegacyProxy::class )->get_instance_of( $class_name );
 	}
 
 	/**

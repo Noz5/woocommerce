@@ -28,6 +28,6 @@ class ThemingServiceProvider extends AbstractServiceProvider {
 	 * Register the classes.
 	 */
 	public function register() {
-		$this->shareWithAutoArguments( ThemeSupport::class );
+		$this->share_with_auto_arguments( ThemeSupport::class );
 	}
 }
